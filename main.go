@@ -10,11 +10,6 @@ import (
 	st "github.com/iamvishnuavenu/carton/pkg/statement"
 )
 
-const (
-	PREPARE_SUCCESS               = 0
-	PREPARE_UNRECONIZED_STATEMENT = 1
-)
-
 func print_promt() {
 	fmt.Print("carton > ")
 }
@@ -40,8 +35,8 @@ func main() {
 
 		var statement st.Statement
 		switch st.PrepareStatement(command, &statement) {
-		case PREPARE_SUCCESS:
-		case PREPARE_UNRECONIZED_STATEMENT:
+		case st.PREPARE_SUCCESS:
+		case st.PREPARE_UNRECONIZED_STATEMENT:
 			fmt.Printf(" Unrecognized command: %s \n", command)
 			continue
 		}
